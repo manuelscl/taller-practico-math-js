@@ -28,6 +28,30 @@ function calcularAlturaTriagulo(lado1, base) {
     }
 }
 
+function AlturaTriaguloEscaleno(lado1, lado2, lado3) {
+
+    if(lado1 === lado2 || lado1 === lado3 || lado2 === lado3) {
+        console.log('no puede haber lados iguales');
+    } else {
+        const S = (lado1 + lado2 + lado3) / 2;
+        const primerLado = S - lado1;
+        const segundoLado = S - lado2;
+        const tercerLado = S - lado3;
+    
+        let altura = (2 / lado1) * Math.sqrt(S * primerLado * segundoLado * tercerLado);
+        altura = Math.floor(altura);
+    
+        // console.log({
+        //     S,
+        //     primerLado,
+        //     segundoLado,
+        //     tercerLado,
+        //     altura,
+        //     result,
+        // })
+        return {altura};
+    }
+}
 console.log(calcularTriangulo(6,6,4,5.5));
 console.log(calcularAlturaTriagulo(6,4));
 
