@@ -18,7 +18,18 @@ function calcularTriangulo(lado1, lado2, base, altura) {
         area: (base * altura) / 2,
     }
 }
+
+function calcularAlturaTriagulo(lado1, base) {
+    if(lado1 === base) {
+        console.warn('Este no es un triángulo isósceles')
+    } else {
+        const altura = Math.sqrt((lado1 ** 2) - ((base ** 2) / 4));
+        return {altura}
+    }
+}
+
 console.log(calcularTriangulo(6,6,4,5.5));
+console.log(calcularAlturaTriagulo(6,4));
 
 console.groupEnd('TRIANGULO');
 
