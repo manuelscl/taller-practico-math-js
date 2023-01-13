@@ -37,11 +37,11 @@ function calcularDescuento() {
         return;
     }
 
-    function hayCupon(elemento) {
+    function buscarCupon(elemento) {
         return elemento.nombre === cupon;
     }
-    // const cuponesEnLista = cuponesLista.filter(hayCupon);
-    const cuponesEnLista = cuponesLista.find(hayCupon);
+    // const cuponesEnLista = cuponesLista.filter(buscarCupon);
+    const cuponesEnLista = cuponesLista.find(buscarCupon);
 
     // if(cuponesEnLista.length > 0) {
     //     descuento = cuponesEnLista[0].descuento; 
@@ -49,6 +49,8 @@ function calcularDescuento() {
 
     if(cuponesEnLista){
         descuento = cuponesEnLista.descuento;
+        let precioConDescuento = (precio * (100 - descuento)) /100;
+        resultado.innerText = "Tu precio con descuento es " + precioConDescuento;
     }
     else {
         resultado.innerText = 'Cupón no válido';
@@ -69,8 +71,6 @@ function calcularDescuento() {
     //     return;
     // }
 
-    let precioConDescuento = (precio * (100 - descuento)) /100;
-
     // switch (cupon) {
     //     case 'cupon1':
     //         descuento = 10;
@@ -88,17 +88,4 @@ function calcularDescuento() {
     //         resultado.innerText = 'Cupón no válido';
     //     return;
     // }
-
-    // if(cupon === 'Cupon1') {
-    //     descuento = 10;
-    // } else if(cupon === 'Cupon2') {
-    //     descuento = 20;
-    // } else if(cupon === 'Cupon3') {
-    //     descuento = 30;
-    // } else {
-    //     resultado.innerText = 'Cupón no válido';
-    //     return;
-    // }
-
-    resultado.innerText = "Tu precio con descuento es " + precioConDescuento;
 }
