@@ -3,9 +3,11 @@ function calcularPromedio(lista) {
     // for(let i = 0; i < lista.length; i++) {
     //     sumarLista = sumarLista += lista[i];
     // }
-    const sumarElementos = (valorAcumulado, valorActual) => valorAcumulado + valorActual;
+    function sumarTodosElementos(valorAcumulado, valorActual) {
+        return valorAcumulado + valorActual;
+    }
 
-    const sumaLista = lista.reduce(sumarElementos);
+    const sumaLista = lista.reduce(sumarTodosElementos);
     const promedio = sumaLista / lista.length;
     
     return promedio;
