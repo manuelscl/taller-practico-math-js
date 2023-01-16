@@ -1,7 +1,14 @@
-function esPar(lista) {
+// class PlatziMath {
+//     static esPar() {}
+//     static calcularMediana() {}
+//     static calcularModa () {}
+// }
+const PlatziMath = {};
+
+PlatziMath.esPar = function esPar(lista) {
     return !(lista.length % 2);
 }
-function calcularMediana(listaDesordenada) {
+PlatziMath.calcularMediana = function calcularMediana(listaDesordenada) {
     const lista = ordenarLista(listaDesordenada);
     const listaEsPar = esPar(lista);
 
@@ -24,7 +31,7 @@ function calcularMediana(listaDesordenada) {
         return medianaImpar;
     }
 }
-function calcularModa(lista) {
+PlatziMath.calcularModa = function calcularModa(lista) {
     const listaCount = {};
 
     for(let i = 0; i < lista.length; i++) {
@@ -43,7 +50,7 @@ function calcularModa(lista) {
 
     return moda;
 }
-function calcularPromedio(lista) {
+PlatziMath.calcularPromedio = function calcularPromedio(lista) {
     function sumarTodosElementos(valorAcumulado, valorActual) {
         return valorAcumulado + valorActual;
     }
@@ -53,7 +60,7 @@ function calcularPromedio(lista) {
     
     return promedio;
 }
-function ordenarLista(listaDesordenada) {
+PlatziMath.ordenarLista = function ordenarLista(listaDesordenada) {
     function ordenarListaSort(a, b) {
         return a - b;
     }
@@ -61,7 +68,7 @@ function ordenarLista(listaDesordenada) {
     const lista = listaDesordenada.sort(ordenarListaSort);
     return lista;
 }
-function ordenarListaBidimensional(listaDesordenada, i) {
+PlatziMath.ordenarListaBidimensional = function ordenarListaBidimensional(listaDesordenada, i) {
     function ordenarLista(valorAcumulado, valorActual) {
         return valorAcumulado[i] - valorActual[i];
     }
