@@ -9,8 +9,23 @@ function esPar(lista) {
 function esImpar(lista) {
     return (lista.length % 2);
 }
+function ordenarLista(listaDesordenada) {
+    function ordenarListaSort(a, b) {
+        // if(a > b) {
+        //     return 1;
+        // } else if(a == b) {
+        //     return 0;
+        // } else if(a < b) {
+        //     return -1;
+        // }
+        return a - b;
+    }
 
-function calcularMediana(lista) {
+    const lista = listaDesordenada.sort(ordenarListaSort);
+    return lista;
+}
+function calcularMediana(listaDesordenada) {
+    const lista = ordenarLista(listaDesordenada);
     const listaEsPar = esPar(lista);
 
     if(listaEsPar) {
