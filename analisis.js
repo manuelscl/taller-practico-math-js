@@ -20,3 +20,30 @@ function medianaPorPersona(nombrePersona) {
     console.log(medianaSalarios);
     return medianaSalarios;
 }
+
+function proyeccionPorPersona(nombrePersona){
+    const trabajos = encontrarPersona(nombrePersona).trabajos;
+
+    let porcentajesCrecimiento = [];
+
+    for(let i = 1; i < trabajos.length; i++) {
+        const salarioActual = trabajos[i].salario;
+        const salarioPasado = trabajos[i - 1].salario;
+        const crecimiento = salarioActual - salarioPasado;
+        const porcentajeCrecimiento = crecimiento / salarioPasado;
+        porcentajesCrecimiento.push(porcentajeCrecimiento);
+    }
+
+    const medianaPorcentajesCrecimiento = PlatziMath.calcularMediana(porcentajesCrecimiento);
+    const ultimoSalario = trabajos[trabajos.length - 1].salario;
+    const aumentoDeSalario = ultimoSalario * medianaPorcentajesCrecimiento;
+    const nuevoSalario = ultimoSalario + aumentoDeSalario;
+
+    console.log({
+        porcentajesCrecimiento,
+        medianaPorcentajesCrecimiento,
+        ultimoSalario,
+        aumentoDeSalario,
+        nuevoSalario,
+    });
+}
