@@ -46,4 +46,22 @@ function proyeccionPorPersona(nombrePersona){
         aumentoDeSalario,
         nuevoSalario,
     });
+}   
+
+const empresas = {};
+
+let company;
+for(persona of salarios) {
+    // console.log(persona)
+    for(trabajo of persona.trabajos) {
+        company = trabajo.empresa;
+        if(!empresas[trabajo.empresa]) {
+            empresas[trabajo.empresa] = {};
+        }
+
+        if(!empresas[trabajo.empresa][trabajo.year]) {
+            empresas[trabajo.empresa][trabajo.year] = [];
+        }
+        empresas[trabajo.empresa][trabajo.year].push(trabajo.salario);
+    }
 }
