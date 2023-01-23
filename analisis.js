@@ -14,10 +14,10 @@ function medianaPorPersona(nombrePersona) {
     const salarios = trabajos.map((elemento) => {
         return elemento.salario;
     })
-    console.log(salarios)
+    // console.log(salarios)
     const medianaSalarios = PlatziMath.calcularMediana(salarios);
 
-    console.log(medianaSalarios);
+    // console.log(medianaSalarios);
     return medianaSalarios;
 }
 
@@ -100,4 +100,26 @@ function proyeccionPorEmpresa(nombre) {
         const aumentoDeSalario = ultimaMediana * medianaPorcentajesCrecimiento;
         const nuevoSalario = ultimaMediana + aumentoDeSalario;
     }
+}
+
+function medianaGeneral() {
+    const listaMedianas = salarios.map(
+        persona => medianaPorPersona(persona.name)
+    );
+    const mediana = PlatziMath.calcularMediana(listaMedianas);
+    console.log({listaMedianas, mediana});
+}
+
+function medianaTop10() {
+    const listaMedianas = salarios.map(
+        persona => medianaPorPersona(persona.name)
+    );
+    const medianasOrdenadas = PlatziMath.ordenarLista(listaMedianas);
+
+    const cantidad = listaMedianas.length / 10;
+    const limite = listaMedianas.length - cantidad;
+
+    const top10 = medianasOrdenadas.splice(limite, medianasOrdenadas.length);
+
+    console.log({listaMedianas, medianasOrdenadas, top10});
 }
